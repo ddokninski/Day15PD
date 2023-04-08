@@ -1,0 +1,23 @@
+browser:
+  browser_name: chrome
+  headless: true
+  attach_screenshot: true
+  web_element_timeout: 10
+environment:
+  test_int:
+    env_name: test_init
+    app_url: http://146.59.32.4/
+    cart_url: http://146.59.32.4/?controller=cart&action=show
+    title: TesterSii
+    user_gender: male
+    user_first_name: Daniel
+    user_last_name: Okninski
+    user_email: danokn1991@gmail.com
+    user_password: zaq123
+    currency: $
+    active: true
+  test:
+    env_name: test
+    app_url: https://logback.qos.ch/
+    title: Logback Home
+    active: false
