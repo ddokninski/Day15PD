@@ -9,7 +9,6 @@ import java.io.IOException;
 public class YamlReader {
 
     public Config config;
-
     public Config getConfig() {
         return config;
     }
@@ -23,5 +22,4 @@ public class YamlReader {
             e.printStackTrace();
         }
     }
-
 }

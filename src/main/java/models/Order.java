@@ -14,10 +14,10 @@ public class Order {
         return orderLines;
     }
 
-    public void addOrderLine(OrderLine orderLine){
+    public void addOrderLine(OrderLine orderLine) {
         boolean productExist = false;
         for (OrderLine line : orderLines) {
-            if(line.getProduct().getName().equals(orderLine.getProduct().getName())){
+            if (line.getProduct().getName().equals(orderLine.getProduct().getName())) {
                 productExist = true;
                 line.setQuantity(line.getQuantity() + orderLine.getQuantity());
                 line.setTotalPrice(line.getTotalPrice() + (line.getProduct().getPrice() * orderLine.getQuantity()));

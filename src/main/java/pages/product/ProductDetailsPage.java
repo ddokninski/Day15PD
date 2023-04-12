@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.base.BasePage;
+import pages.cart.PopUpCart;
 
 public class ProductDetailsPage extends BasePage {
 
@@ -27,29 +28,22 @@ public class ProductDetailsPage extends BasePage {
         return this;
     }
 
-    public void addToCart(){
+    public PopUpCart addToCart() {
         clickOnElement(addToCartButton);
+        return new PopUpCart(driver);
     }
 
-    public double getProductPrice(){
+    public double getProductPrice() {
         return Double.parseDouble(productPrice.getText().replace(System.getProperty("currency"), ""));
     }
-
-//    public CartPopUpPage addToCart() {
-//        return new CartPopUpPage(driver);
-//    }
 
     public String getProductName() {
         return productName.getText();
     }
-    public int getQuantity(){
+
+    public int getQuantity() {
         return Integer.parseInt(quantityInput.getAttribute("value"));
     }
-
-//    public Product getProductDetails() {
-//        //do konstruktora wsadzić nazwę cenę cenę łączną z tego co widzi na stronie
-//        return new Product();
-//    }
 
     public OrderLine getOrderLineDetails() {
         return new OrderLine(new Product(getProductName(), getProductPrice()), getQuantity(), (getProductPrice() * getQuantity()));

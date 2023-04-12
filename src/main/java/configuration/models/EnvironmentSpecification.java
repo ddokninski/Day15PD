@@ -29,9 +29,6 @@ public class EnvironmentSpecification {
 
     @Override
     public String toString() {
-        return "EnvironmentSpecification{" +
-                "active=" + active +
-                ", properties=" + properties +
-                '}';
+        return "EnvironmentSpecification{" + "active=" + active + ", properties=" + properties + '}';
     }
 }

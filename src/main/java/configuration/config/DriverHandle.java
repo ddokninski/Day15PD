@@ -47,12 +47,14 @@ public class DriverHandle {
         optionsFirefox.addArguments("start-maximized");
         driver = new FirefoxDriver(optionsFirefox);
     }
+
     private void getEdgeDriver() {
         EdgeOptions optionsEdge = new EdgeOptions();
         WebDriverManager.edgedriver().setup();
         optionsEdge.addArguments("start-maximized");
-        driver= new EdgeDriver(optionsEdge);
+        driver = new EdgeDriver(optionsEdge);
     }
+
     private void getIeDriver() {
         InternetExplorerOptions optionsIe = new InternetExplorerOptions();
         WebDriverManager.iedriver().setup();

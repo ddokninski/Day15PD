@@ -9,13 +9,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.math.BigDecimal;
 import java.time.Duration;
 import java.util.List;
 import java.util.Random;
 
 public class BasePage {
     static Logger logger = LoggerFactory.getLogger(BasePage.class);
+
     public WebDriver driver;
     public WebDriverWait wait;
     public Actions actions;
@@ -24,6 +24,7 @@ public class BasePage {
         initDriver(driver);
         PageFactory.initElements(driver, this);
     }
+
     public BasePage(WebDriver driver, WebElement parent) {
         initDriver(driver);
         PageFactory.initElements(new DefaultElementLocatorFactory(parent), this);
@@ -45,8 +46,8 @@ public class BasePage {
 
     public void waitToBeClickAble(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
-//        wait.until(ExpectedConditions.visibilityOfAllElements());
     }
+
     public void waitToBeClickAbleList(List<WebElement> elements) {
         wait.until(ExpectedConditions.visibilityOfAllElements(elements));
     }

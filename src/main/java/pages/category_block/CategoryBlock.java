@@ -20,7 +20,7 @@ public class CategoryBlock extends BasePage {
         return categoryName.getText();
     }
 
-    public String infoAboutQuantityOfProductsOnPage(){
+    public String infoAboutQuantityOfProductsOnPage() {
         return infoAboutQuantityOfProducts.getText();
     }
 }

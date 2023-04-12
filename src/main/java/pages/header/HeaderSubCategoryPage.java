@@ -20,5 +20,4 @@ public class HeaderSubCategoryPage {
         return  clothesSubCategoriesList;
     }
 
-
 }

@@ -36,9 +36,5 @@ public class FiltersTest extends TestBase {
                 .clearAllFilters();
 
         Assertions.assertThat(at(ProductsGridPage.class).getProducts().size()).isEqualTo(quantityOfProductsBeforeFilter);
-
-
     }
-
-
 }

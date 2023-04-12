@@ -5,8 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.base.BasePage;
 
-import java.math.BigDecimal;
-
 public class ProductMiniaturePage extends BasePage {
     public ProductMiniaturePage(WebDriver driver, WebElement parent) {
         super(driver, parent);

@@ -27,6 +27,15 @@ public class RemoveProduct extends TestBase {
 
         driver.get(UrlProvider.cartUrl);
 
+        if(at(CartPage.class).toOrder().getOrderLines().size() < 2) {
+            driver.get(UrlProvider.baseUrl);
+            at(ProductsGridPage.class)
+                    .openRandomProduct();
+
+            at(ProductDetailsPage.class)
+                    .addToCart();
+        }
+
         double expectedValue = getExpectedValue();
         double actualTotalProductPrice = at(CartPage.class).getTotalProductsPrice();
 
@@ -42,6 +51,7 @@ public class RemoveProduct extends TestBase {
 
         at(CartPage.class)
                 .removeFirstProductFromCart();
+
         String textFromEmptyBasket = at(CartPage.class).getTextFromEmptyBasket();
 
         Assertions.assertThat(textFromEmptyBasket).isEqualTo("There are no more items in your cart");

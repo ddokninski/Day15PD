@@ -12,15 +12,17 @@ public class Environment {
     Map<String, EnvironmentSpecification> environments = new LinkedHashMap<>();
 
     @JsonAnySetter
-    void setEnvironment(String key, EnvironmentSpecification envSpecification) {environments.put(key, envSpecification);}
+    void setEnvironment(String key, EnvironmentSpecification envSpecification) {
+        environments.put(key, envSpecification);
+    }
 
     @JsonAnyGetter
-    public List<EnvironmentSpecification> getEnvironments() {return environments.values().stream().toList();}
+    public List<EnvironmentSpecification> getEnvironments() {
+        return environments.values().stream().toList();
+    }
 
     @Override
     public String toString() {
-        return "Environment{" +
-                "environments=" + environments +
-                '}';
+        return "Environment{" + "environments=" + environments + '}';
     }
 }

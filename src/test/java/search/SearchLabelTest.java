@@ -46,7 +46,4 @@ public class SearchLabelTest extends TestBase {
 
         Assertions.assertThat(isCorrect).isEqualTo(true);
     }
-
-
-    //.submenu-container>li:nth-of-type(1)>ul>li:nth-child(2)>a
 }

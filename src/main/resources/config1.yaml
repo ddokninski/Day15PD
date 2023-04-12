@@ -11,9 +11,14 @@ environment:
     title: TesterSii
     user_gender: male
     user_first_name: Daniel
-    user_last_name: Okninski
+    user_last_name: Okniński
     user_email: danokn1991@gmail.com
     user_password: zaq123
+    user_address: Polna 11
+    user_country: United States
+    user_city: Warszawa
+    user_post_code: New York 12345
+    user_street: Polna11
     currency: $
     active: true
   test:

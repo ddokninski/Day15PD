@@ -26,8 +26,5 @@ public class UserFactory {
                 .password(System.getProperty("user_password"))
                 .build();
     }
-
-
-
 }
 

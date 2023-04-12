@@ -69,7 +69,6 @@ public class FilterPage extends BasePage {
                 break;
             }
         }
-
         return this;
     }
 

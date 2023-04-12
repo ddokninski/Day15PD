@@ -19,33 +19,44 @@ public class PopUpCart extends BasePage {
     private WebElement totalPrice;
     @FindBy(css = ".btn-secondary")
     private WebElement continueShoppingButton;
+    @FindBy(css = ".cart-content-btn .btn-primary")
+    private WebElement proceedToCheckoutButton;
 
 
     public PopUpCart(WebDriver driver) {
         super(driver);
     }
 
-    public String getProductName(){
+    public String getProductName() {
         waitToBeClickAble(continueShoppingButton);
         return productName.getText();
     }
+
     public double getProductPrice() {
         waitToBeClickAble(continueShoppingButton);
         return Double.parseDouble(productPrice.getText().replace(System.getProperty("currency"), ""));
     }
+
     public int getQuantity() {
         waitToBeClickAble(continueShoppingButton);
         return Integer.parseInt(productQuantity.getText());
     }
+
     public double getTotalPrice() {
         waitToBeClickAble(continueShoppingButton);
         return Double.parseDouble(totalPrice.getText().replace(System.getProperty("currency"), ""));
     }
-    public void continueShopping(){
+
+    public void continueShopping() {
         clickOnElement(continueShoppingButton);
     }
-    public OrderLine getOrderLine(){
-        return new OrderLine(new Product(getProductName(),getProductPrice()),getQuantity(), getTotalPrice());
+
+    public OrderLine getOrderLine() {
+        return new OrderLine(new Product(getProductName(), getProductPrice()), getQuantity(), getTotalPrice());
+    }
+
+    public void proceedToCheckoutAction() {
+        clickOnElement(proceedToCheckoutButton);
     }
 
 }

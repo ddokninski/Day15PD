@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.base.BasePage;
+import pages.sign_in.SignInPage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,25 +29,28 @@ public class HeaderPage extends BasePage {
 
     @FindBy(css = "#top-menu>li:nth-of-type(2)")
     private WebElement accesoriesCategory;
-
     @FindBy(css = "#top-menu>li:nth-of-type(3)")
     private WebElement artCategory;
     @FindBy(css = ".cart-products-count")
     private WebElement cartProductCounter;
+    @FindBy(css = "a[title='Log in to your customer account']")
+    private WebElement signInButton;
+
+    @FindBy(css = ".account")
+    private WebElement myAccountButton;
 
 
-    public HeaderPage typeInToSearchLabel(String text){
+    public HeaderPage typeInToSearchLabel(String text) {
         sendKeysAndClear(searchWidget, text);
-//        searchWidget.sendKeys(Keys.RETURN);
         return this;
     }
 
-    public HeaderPage clickOnSearchButton(){
+    public HeaderPage clickOnSearchButton() {
         clickOnElement(searchButton);
         return this;
     }
 
-    public List<String> collectSearchResultFromDropDownListToStringList()  {
+    public List<String> collectSearchResultFromDropDownListToStringList() {
         waitToBeClickAbleList(searchResults);
         List<String> stringList = new ArrayList<>();
         for (WebElement searchResult : searchResults) {
@@ -59,7 +63,7 @@ public class HeaderPage extends BasePage {
     public boolean checkCorrectionOfSearchResult(List<String> resultList, String searchedText) {
 
         for (String s : resultList) {
-            if(!s.contains(searchedText)) {
+            if (!s.contains(searchedText)) {
                 return false;
             }
         }
@@ -70,9 +74,8 @@ public class HeaderPage extends BasePage {
         return mainCategories;
     }
 
-
-    public void clickOnCategory(int i){
-            clickOnElement(mainCategories.get(i));
+    public void clickOnCategory(int i) {
+        clickOnElement(mainCategories.get(i));
     }
 
     public void goToAccessoriesCategory() {
@@ -84,7 +87,6 @@ public class HeaderPage extends BasePage {
     }
 
     public void clickOnSubCategory(int numberOfMainCategory, int numberOfSubcategory) throws InterruptedException {
-//        hoverOverOnElement(i);
         List<WebElement> subCategory = mainCategories.get(numberOfMainCategory).findElements(By.cssSelector("a[class='dropdown-item dropdown-submenu']"));
         clickOnElement(subCategory.get(numberOfSubcategory));
     }
@@ -99,9 +101,8 @@ public class HeaderPage extends BasePage {
     }
 
     public HeaderPage hoverOverOnElement(int i) throws InterruptedException {
-//        Thread.sleep(1000);
         hoverOverElement(mainCategories.get(i));
-        return  this;
+        return this;
     }
 
     public String getSubcategoryName(int numberOfMainCategory, int numberOfSubcategory) {
@@ -113,5 +114,13 @@ public class HeaderPage extends BasePage {
         return Integer.parseInt(cartProductCounter.getText().replace("(", "").replace(")", ""));
     }
 
+    public SignInPage clickOnSignInButton() {
+        clickOnElement(signInButton);
+        return new SignInPage(driver);
+    }
+
+    public void goToMyAccount() {
+        clickOnElement(myAccountButton);
+    }
 
 }

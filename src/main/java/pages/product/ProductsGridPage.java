@@ -17,11 +17,6 @@ public class ProductsGridPage extends BasePage {
     @FindBy(css = ".product-miniature")
     private List<WebElement> productsMiniatures;
 
-
-//    public ProductDetailsPage openProductWithName(String someName) {
-//        return new ProductDetailsPage(driver);
-//    }
-
     public List<ProductMiniaturePage> getProducts() {
         //jakiś wait na elementy
         List<ProductMiniaturePage> productMiniaturePages = new ArrayList<>();
@@ -40,11 +35,11 @@ public class ProductsGridPage extends BasePage {
     public String getTitleOfRandomProduct() {
         var product = new ProductMiniaturePage(driver, getRandomElement(productsMiniatures));
         String productName = product.getTitle();
-//        product.open();
         return productName;
     }
 
-    public void openProductWithName(String nameOfProduct){
+    public ProductDetailsPage openProductWithName(String nameOfProduct) {
         clickOnElement(driver.findElement(By.xpath("//a[.='" + nameOfProduct.toUpperCase() + "']")));
+        return new ProductDetailsPage(driver);
     }
 }
